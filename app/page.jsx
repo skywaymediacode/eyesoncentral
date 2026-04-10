@@ -110,7 +110,7 @@ export default function Home() {
                 </div>
                 
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
-                  Your Vision,{' '}
+                  Your Vision,<br />
                   <span className="text-yellow">Our Focus</span>
                 </h1>
                 
@@ -231,29 +231,33 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <ScrollReveal animation="fade-right">
               <div className="relative">
-                {/* Main Office Image */}
-                <div className="rounded-2xl overflow-hidden shadow-2xl">
-                  <Image
-                    src="/images/interior_lobby.webp"
-                    alt="Eyes on Central modern office interior"
-                    width={700}
-                    height={500}
-                    className="w-full h-[400px] lg:h-[500px] object-cover"
-                  />
+                {/* Main Office Image with hover parallax effect */}
+                <div className="group rounded-2xl overflow-hidden shadow-2xl cursor-pointer">
+                  <div className="relative overflow-hidden">
+                    <Image
+                      src="/images/interior_lobby.webp"
+                      alt="Eyes on Central modern office interior"
+                      width={700}
+                      height={500}
+                      className="w-full h-[400px] lg:h-[500px] object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+                    />
+                    {/* Shine effect on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                  </div>
                 </div>
                 
-                {/* Floating secondary image */}
-                <div className="absolute -bottom-8 -right-8 w-48 h-48 lg:w-64 lg:h-64 rounded-xl overflow-hidden shadow-xl border-4 border-white">
+                {/* Floating secondary image with hover effect */}
+                <div className="absolute -bottom-8 -right-8 w-48 h-48 lg:w-64 lg:h-64 rounded-xl overflow-hidden shadow-xl border-4 border-white group cursor-pointer hover:border-yellow transition-colors duration-300 hover:shadow-2xl hover:shadow-yellow/20">
                   <Image
                     src="/images/interior_frames.webp"
                     alt="Designer frames collection"
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
                 
                 {/* Experience badge */}
-                <div className="absolute -top-6 -left-6 bg-navy text-white rounded-xl p-4 shadow-xl">
+                <div className="absolute -top-6 -left-6 bg-navy text-white rounded-xl p-4 shadow-xl hover:scale-105 transition-transform duration-300">
                   <div className="text-3xl font-extrabold text-yellow">35+</div>
                   <div className="text-sm text-white/80">Years Serving<br/>St. Pete</div>
                 </div>
@@ -262,9 +266,6 @@ export default function Home() {
 
             <ScrollReveal animation="fade-left" delay={200}>
               <div className="lg:pl-8">
-                <span className="inline-block px-4 py-1.5 bg-navy text-white rounded-full text-sm font-semibold mb-4">
-                  Welcome to Eyes on Central
-                </span>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy mb-6 leading-tight">
                   Your Partner in <span className="text-cobalt">Lifelong Vision</span>
                 </h2>
@@ -278,13 +279,47 @@ export default function Home() {
                 {/* Benefits Grid */}
                 <div className="grid sm:grid-cols-2 gap-4 mb-8">
                   {[
-                    { icon: '🏆', title: 'Clinical Excellence', desc: 'Advanced diagnostic care' },
-                    { icon: '❤️', title: 'Patient-First', desc: 'Personalized attention' },
-                    { icon: '🔬', title: 'Latest Technology', desc: 'Modern equipment' },
-                    { icon: '🤝', title: 'Community Focused', desc: 'Local and trusted' },
+                    { 
+                      icon: (
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                        </svg>
+                      ), 
+                      title: 'Clinical Excellence', 
+                      desc: 'Advanced diagnostic care' 
+                    },
+                    { 
+                      icon: (
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                      ), 
+                      title: 'Patient-First', 
+                      desc: 'Personalized attention' 
+                    },
+                    { 
+                      icon: (
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                      ), 
+                      title: 'Latest Technology', 
+                      desc: 'Modern equipment' 
+                    },
+                    { 
+                      icon: (
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                      ), 
+                      title: 'Community Focused', 
+                      desc: 'Local and trusted' 
+                    },
                   ].map((benefit) => (
-                    <div key={benefit.title} className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                      <span className="text-2xl">{benefit.icon}</span>
+                    <div key={benefit.title} className="group flex items-start gap-3 p-4 bg-white rounded-xl shadow-sm hover:shadow-lg hover:shadow-cobalt/10 transition-all duration-300 border border-transparent hover:border-cobalt/20">
+                      <div className="w-10 h-10 bg-cobalt/10 rounded-lg flex items-center justify-center text-cobalt group-hover:bg-cobalt group-hover:text-white transition-all duration-300">
+                        {benefit.icon}
+                      </div>
                       <div>
                         <div className="font-bold text-navy text-sm">{benefit.title}</div>
                         <div className="text-gray-500 text-xs">{benefit.desc}</div>
@@ -329,19 +364,19 @@ export default function Home() {
             {services.map((service, index) => (
               <ScrollReveal key={service.title} animation="fade-up" delay={index * 100}>
                 <Link href={service.href} className="group block h-full">
-                  <div className={`h-full p-8 rounded-xl border transition-all duration-500 hover:-translate-y-2 ${
+                  <div className={`h-full p-8 rounded-xl border transition-all duration-500 hover:-translate-y-2 hover:shadow-lg ${
                     service.color === 'cobalt' 
-                      ? 'bg-cobalt/20 border-cobalt/30 hover:bg-cobalt/30 hover:border-cobalt/50' 
+                      ? 'bg-cobalt/20 border-cobalt/40 hover:bg-cobalt/30 hover:border-cobalt/60 hover:shadow-cobalt/20' 
                       : service.color === 'teal'
-                      ? 'bg-teal/20 border-teal/30 hover:bg-teal/30 hover:border-teal/50'
-                      : 'bg-yellow/10 border-yellow/30 hover:bg-yellow/20 hover:border-yellow/50'
+                      ? 'bg-teal/20 border-teal/40 hover:bg-teal/30 hover:border-teal/60 hover:shadow-teal/20'
+                      : 'bg-teal/15 border-teal/30 hover:bg-teal/25 hover:border-teal/50 hover:shadow-teal/20'
                   }`}>
                     <div className={`w-16 h-16 rounded-lg flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 ${
                       service.color === 'cobalt' 
-                        ? 'bg-cobalt/30 text-white' 
+                        ? 'bg-cobalt/40 text-white' 
                         : service.color === 'teal'
-                        ? 'bg-teal/30 text-white'
-                        : 'bg-yellow/30 text-yellow'
+                        ? 'bg-teal/40 text-white'
+                        : 'bg-teal/30 text-teal'
                     }`}>
                       {service.icon}
                     </div>
