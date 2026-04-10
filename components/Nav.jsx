@@ -185,9 +185,9 @@ export default function Nav() {
             <Image
               src="/images/logo.png"
               alt="Eyes on Central"
-              width={220}
-              height={40}
-              className="h-10 w-auto"
+              width={1024}
+              height={139}
+              className="h-9 w-auto"
               priority
             />
           </Link>
