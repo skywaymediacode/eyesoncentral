@@ -14,7 +14,11 @@ module.exports = {
         warm: '#F8F7F2',
       },
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-plus-jakarta)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-bricolage)', 'system-ui', 'sans-serif'],
+      },
+      borderRadius: {
+        'card': '8px',
       },
     },
   },
