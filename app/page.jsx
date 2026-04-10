@@ -74,39 +74,42 @@ export default function Home() {
   ]
 
   const galleryImages = [
-    { src: '/images/gallery/interior-1.jpg', alt: 'Eyes on Central reception area' },
-    { src: '/images/gallery/interior-2.jpg', alt: 'Modern exam room' },
-    { src: '/images/gallery/interior-3.jpg', alt: 'Eyewear display' },
-    { src: '/images/gallery/interior-4.jpg', alt: 'Consultation area' },
+    { src: '/images/interior_lobby.webp', alt: 'Eyes on Central reception area' },
+    { src: '/images/interior_frames.webp', alt: 'Designer eyewear display' },
+    { src: '/images/interior_optical.webp', alt: 'Optical showroom' },
+    { src: '/images/interior_equipment.webp', alt: 'Modern exam equipment' },
   ]
 
   return (
     <main>
-      {/* Hero Section */}
-      <section className="relative min-h-[85vh] flex items-center bg-gradient-to-br from-warm via-white to-teal/10">
+      {/* Hero Section - Dark Navy */}
+      <section className="relative min-h-[90vh] flex items-center bg-navy overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-[0.03]">
           <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230D2B6E' fill-opacity='1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23F5C518' fill-opacity='1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }} />
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/95 to-transparent" />
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Content */}
             <ScrollReveal animation="fade-up">
               <div className="max-w-xl">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-cobalt/10 rounded-full text-cobalt text-sm font-medium mb-6">
-                  <span className="w-2 h-2 bg-cobalt rounded-full animate-pulse" />
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow/10 border border-yellow/30 rounded-full text-yellow text-sm font-medium mb-6">
+                  <span className="w-2 h-2 bg-yellow rounded-full animate-pulse" />
                   Now Accepting New Patients
                 </div>
                 
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy leading-tight mb-6">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
                   Your Vision,{' '}
-                  <span className="text-cobalt">Our Focus</span>
+                  <span className="text-yellow">Our Focus</span>
                 </h1>
                 
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                <p className="text-lg text-white/70 mb-8 leading-relaxed">
                   Experience exceptional eye care in the heart of St. Petersburg. 
                   From comprehensive exams to designer eyewear, we&apos;re here to help you see life clearly.
                 </p>
@@ -114,7 +117,7 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link 
                     href="/contact"
-                    className="inline-flex items-center justify-center px-8 py-4 bg-cobalt text-white font-semibold rounded-full hover:bg-navy transition-all duration-300 shadow-lg shadow-cobalt/25 hover:shadow-xl hover:shadow-navy/25 hover:-translate-y-0.5"
+                    className="inline-flex items-center justify-center px-8 py-4 bg-yellow text-navy font-semibold rounded-full hover:bg-white transition-all duration-300 shadow-lg shadow-yellow/25 hover:shadow-xl hover:-translate-y-0.5"
                   >
                     Book an Appointment
                     <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -123,14 +126,14 @@ export default function Home() {
                   </Link>
                   <Link 
                     href="/vision-care"
-                    className="inline-flex items-center justify-center px-8 py-4 bg-white text-navy font-semibold rounded-full border-2 border-navy/10 hover:border-navy/30 transition-all duration-300 hover:-translate-y-0.5"
+                    className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white font-semibold rounded-full border-2 border-white/30 hover:border-white/60 hover:bg-white/5 transition-all duration-300 hover:-translate-y-0.5"
                   >
                     Our Services
                   </Link>
                 </div>
 
                 {/* Trust Indicators */}
-                <div className="mt-12 pt-8 border-t border-gray-200">
+                <div className="mt-12 pt-8 border-t border-white/10">
                   <div className="flex flex-wrap items-center gap-8">
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 bg-yellow/20 rounded-full flex items-center justify-center">
@@ -139,19 +142,19 @@ export default function Home() {
                         </svg>
                       </div>
                       <div>
-                        <div className="font-bold text-navy">5.0 Rating</div>
-                        <div className="text-sm text-gray-500">Google Reviews</div>
+                        <div className="font-bold text-white">5.0 Rating</div>
+                        <div className="text-sm text-white/50">Google Reviews</div>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-teal/20 rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-cobalt/30 rounded-full flex items-center justify-center">
                         <svg className="w-6 h-6 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                       </div>
                       <div>
-                        <div className="font-bold text-navy">Same Day</div>
-                        <div className="text-sm text-gray-500">Appointments</div>
+                        <div className="font-bold text-white">Same Day</div>
+                        <div className="text-sm text-white/50">Appointments</div>
                       </div>
                     </div>
                   </div>
@@ -159,28 +162,34 @@ export default function Home() {
               </div>
             </ScrollReveal>
 
-            {/* Right Image */}
+            {/* Right Image - Dr. Caleb Saint Jean */}
             <ScrollReveal animation="fade-left" delay={200}>
               <div className="relative">
                 {/* Main Image */}
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
                   <Image
-                    src="/images/hero-exam.jpg"
-                    alt="Eye examination at Eyes on Central"
+                    src="/images/doctor_portrait.jpg"
+                    alt="Dr. Caleb Saint Jean at Eyes on Central"
                     width={600}
                     height={700}
-                    className="w-full h-[500px] lg:h-[600px] object-cover"
+                    className="w-full h-[500px] lg:h-[600px] object-cover object-top"
                     priority
                   />
                   {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
+                  
+                  {/* Doctor name overlay */}
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <p className="text-yellow text-sm font-medium mb-1">Lead Optometrist</p>
+                    <h3 className="text-white text-2xl font-bold">Dr. Caleb Saint Jean, O.D.</h3>
+                  </div>
                 </div>
 
                 {/* Floating Card */}
-                <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-6 max-w-xs">
+                <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-5 max-w-xs">
                   <div className="flex items-start gap-4">
-                    <div className="w-14 h-14 bg-cobalt/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <svg className="w-7 h-7 text-cobalt" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-12 h-12 bg-cobalt/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-cobalt" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                       </svg>
                     </div>
@@ -192,20 +201,107 @@ export default function Home() {
                 </div>
 
                 {/* Decorative Elements */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-yellow/30 rounded-full blur-2xl" />
-                <div className="absolute -bottom-8 right-12 w-32 h-32 bg-teal/20 rounded-full blur-3xl" />
+                <div className="absolute -top-4 -right-4 w-24 h-24 bg-yellow/20 rounded-full blur-2xl" />
+                <div className="absolute -bottom-8 right-12 w-32 h-32 bg-cobalt/30 rounded-full blur-3xl" />
               </div>
             </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Quick Links Bar - Cobalt */}
+      <section className="bg-cobalt py-6">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap justify-center gap-4 lg:gap-8">
+            {['Eye Exams', 'Contact Lenses', 'Designer Frames', 'Dry Eye', 'Emergency Care'].map((item) => (
+              <Link 
+                key={item} 
+                href={`/vision-care/${item.toLowerCase().replace(' ', '-')}`}
+                className="text-white/80 hover:text-yellow transition-colors text-sm font-medium"
+              >
+                {item}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Dr. Saint Jean Section */}
+      <section className="py-24 bg-warm">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <ScrollReveal animation="fade-right">
+              <div className="relative">
+                <div className="rounded-2xl overflow-hidden shadow-xl border-t-4 border-yellow">
+                  <Image
+                    src="/images/doctor_consulting.jpg"
+                    alt="Dr. Caleb Saint Jean consulting with a patient"
+                    width={600}
+                    height={500}
+                    className="w-full h-[450px] object-cover"
+                  />
+                </div>
+                {/* Credentials Card */}
+                <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-xl p-5">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-navy rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="font-bold text-navy">Board Certified</div>
+                      <div className="text-sm text-gray-500">Doctor of Optometry</div>
+                    </div>
+                  </div>
+                </div>
+                {/* Decorative */}
+                <div className="absolute -top-6 -left-6 w-32 h-32 bg-cobalt/10 rounded-full blur-3xl" />
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal animation="fade-left" delay={200}>
+              <div>
+                <span className="inline-block px-4 py-1 bg-navy/10 text-navy rounded-full text-sm font-medium mb-4">
+                  Meet Your Doctor
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-6">
+                  Dr. Caleb Saint Jean, O.D.
+                </h2>
+                <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                  Dr. Caleb Saint Jean is the lead optometrist at Eyes on Central, bringing a passion for personalized eye care and a commitment to clinical excellence. He provides comprehensive eye examinations, manages ocular disease, and specializes in fitting contact lenses and prescribing specialty eyewear.
+                </p>
+                <p className="text-gray-600 leading-relaxed mb-8">
+                  Dr. Saint Jean is dedicated to making high-quality vision care accessible to all members of the St. Petersburg community. His warm, patient-first approach ensures that every visit is thorough, comfortable, and tailored to individual needs.
+                </p>
+                <div className="flex flex-wrap gap-3 mb-8">
+                  {['English', 'Spanish', 'Haitian Creole'].map((lang) => (
+                    <span key={lang} className="px-4 py-2 bg-cobalt/10 text-cobalt rounded-full text-sm font-medium">
+                      {lang}
+                    </span>
+                  ))}
+                </div>
+                <Link 
+                  href="/about/doctors-staff"
+                  className="inline-flex items-center px-6 py-3 bg-navy text-white font-semibold rounded-full hover:bg-cobalt transition-colors"
+                >
+                  Learn More About Dr. Saint Jean
+                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section - White */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal animation="fade-up">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="inline-block px-4 py-1 bg-teal/10 text-teal rounded-full text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-1 bg-cobalt/10 text-cobalt rounded-full text-sm font-medium mb-4">
                 Our Services
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">
@@ -221,8 +317,8 @@ export default function Home() {
             {services.map((service, index) => (
               <ScrollReveal key={service.title} animation="fade-up" delay={index * 100}>
                 <Link href={service.href} className="group block h-full">
-                  <div className="h-full p-8 bg-warm rounded-2xl border border-gray-100 hover:border-cobalt/20 hover:shadow-xl hover:shadow-cobalt/5 transition-all duration-300 hover:-translate-y-1">
-                    <div className="w-16 h-16 bg-cobalt/10 rounded-xl flex items-center justify-center text-cobalt mb-6 group-hover:bg-cobalt group-hover:text-white transition-all duration-300">
+                  <div className="h-full p-8 bg-warm rounded-xl border border-gray-100 hover:border-cobalt/20 hover:shadow-xl hover:shadow-cobalt/5 transition-all duration-300 hover:-translate-y-1">
+                    <div className="w-16 h-16 bg-navy/10 rounded-lg flex items-center justify-center text-navy mb-6 group-hover:bg-navy group-hover:text-yellow transition-all duration-300">
                       {service.icon}
                     </div>
                     <h3 className="text-xl font-bold text-navy mb-3 group-hover:text-cobalt transition-colors">
@@ -245,75 +341,92 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Doctor Section */}
-      <section className="py-24 bg-gradient-to-b from-warm to-white">
+      {/* Eyewear Section - Navy */}
+      <section className="py-24 bg-navy text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <ScrollReveal animation="fade-right">
-              <div className="relative">
-                <div className="rounded-3xl overflow-hidden shadow-2xl">
-                  <Image
-                    src="/images/dr-belezos.jpg"
-                    alt="Dr. Anastasia Belezos"
-                    width={500}
-                    height={600}
-                    className="w-full h-[500px] object-cover object-top"
-                  />
-                </div>
-                {/* Credentials Card */}
-                <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-6">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-cobalt rounded-full flex items-center justify-center">
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <div className="font-bold text-navy">Board Certified</div>
-                      <div className="text-sm text-gray-500">Doctor of Optometry</div>
-                    </div>
+              <div>
+                <span className="inline-block px-4 py-1 bg-yellow/20 text-yellow rounded-full text-sm font-medium mb-4">
+                  Designer Eyewear
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+                  Curated Collection of Premium Frames
+                </h2>
+                <p className="text-white/70 text-lg leading-relaxed mb-6">
+                  Discover our hand-selected collection of designer eyewear from the world&apos;s most prestigious brands. Each frame is chosen for its quality, style, and craftsmanship.
+                </p>
+                <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div className="p-4 bg-white/10 rounded-xl">
+                    <div className="text-2xl font-bold text-yellow mb-1">500+</div>
+                    <div className="text-sm text-white/60">Frame Styles</div>
+                  </div>
+                  <div className="p-4 bg-white/10 rounded-xl">
+                    <div className="text-2xl font-bold text-yellow mb-1">50+</div>
+                    <div className="text-sm text-white/60">Designer Brands</div>
                   </div>
                 </div>
-                {/* Decorative */}
-                <div className="absolute -top-6 -left-6 w-32 h-32 bg-teal/20 rounded-full blur-3xl" />
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal animation="fade-left" delay={200}>
-              <div>
-                <span className="inline-block px-4 py-1 bg-cobalt/10 text-cobalt rounded-full text-sm font-medium mb-4">
-                  Meet Your Doctor
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-6">
-                  Dr. Anastasia Belezos, O.D.
-                </h2>
-                <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                  With a passion for personalized eye care, Dr. Belezos brings extensive expertise in comprehensive vision exams, contact lens fittings, and ocular disease management to St. Petersburg.
-                </p>
-                <p className="text-gray-600 leading-relaxed mb-8">
-                  A graduate of Nova Southeastern University College of Optometry, Dr. Belezos is committed to staying at the forefront of optometric advancements. She specializes in dry eye treatment, myopia control, and fitting specialty contact lenses for patients with complex visual needs.
-                </p>
-                <div className="flex flex-wrap gap-4 mb-8">
-                  <span className="px-4 py-2 bg-teal/10 text-teal rounded-full text-sm font-medium">Dry Eye Specialist</span>
-                  <span className="px-4 py-2 bg-yellow/20 text-yellow-700 rounded-full text-sm font-medium">Myopia Control</span>
-                  <span className="px-4 py-2 bg-cobalt/10 text-cobalt rounded-full text-sm font-medium">Contact Lens Expert</span>
-                </div>
                 <Link 
-                  href="/about/doctors"
-                  className="inline-flex items-center px-6 py-3 bg-navy text-white font-semibold rounded-full hover:bg-cobalt transition-colors"
+                  href="/vision-care/lenses-frames"
+                  className="inline-flex items-center px-6 py-3 bg-yellow text-navy font-semibold rounded-full hover:bg-white transition-colors"
                 >
-                  Learn More About Dr. Belezos
+                  Explore Our Collection
                   <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
               </div>
             </ScrollReveal>
+
+            <ScrollReveal animation="fade-left" delay={200}>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-4">
+                  <div className="rounded-xl overflow-hidden">
+                    <Image
+                      src="/images/interior_gucci.webp"
+                      alt="Gucci frames display"
+                      width={300}
+                      height={400}
+                      className="w-full h-64 object-cover"
+                    />
+                  </div>
+                  <div className="rounded-xl overflow-hidden">
+                    <Image
+                      src="/images/interior_raybans.webp"
+                      alt="Ray-Ban collection"
+                      width={300}
+                      height={300}
+                      className="w-full h-48 object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-4 pt-8">
+                  <div className="rounded-xl overflow-hidden">
+                    <Image
+                      src="/images/interior_nuance.webp"
+                      alt="Designer frames"
+                      width={300}
+                      height={300}
+                      className="w-full h-48 object-cover"
+                    />
+                  </div>
+                  <div className="rounded-xl overflow-hidden">
+                    <Image
+                      src="/images/interior_sun.webp"
+                      alt="Sunglasses collection"
+                      width={300}
+                      height={400}
+                      className="w-full h-64 object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* Gallery Section */}
+      {/* Gallery Section - White */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal animation="fade-up">
@@ -333,7 +446,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {galleryImages.map((image, index) => (
               <ScrollReveal key={image.src} animation="fade-up" delay={index * 100}>
-                <div className="group relative rounded-2xl overflow-hidden aspect-[4/5]">
+                <div className="group relative rounded-xl overflow-hidden aspect-[4/5]">
                   <Image
                     src={image.src}
                     alt={image.alt}
@@ -351,103 +464,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Eyewear Section */}
-      <section className="py-24 bg-navy text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <ScrollReveal animation="fade-right">
-              <div>
-                <span className="inline-block px-4 py-1 bg-yellow/20 text-yellow rounded-full text-sm font-medium mb-4">
-                  Designer Eyewear
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-                  Curated Collection of Premium Frames
-                </h2>
-                <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                  Discover our hand-selected collection of designer eyewear from the world&apos;s most prestigious brands. Each frame is chosen for its quality, style, and craftsmanship.
-                </p>
-                <div className="grid grid-cols-2 gap-4 mb-8">
-                  <div className="p-4 bg-white/10 rounded-xl">
-                    <div className="text-2xl font-bold text-yellow mb-1">500+</div>
-                    <div className="text-sm text-gray-300">Frame Styles</div>
-                  </div>
-                  <div className="p-4 bg-white/10 rounded-xl">
-                    <div className="text-2xl font-bold text-yellow mb-1">50+</div>
-                    <div className="text-sm text-gray-300">Designer Brands</div>
-                  </div>
-                </div>
-                <Link 
-                  href="/vision-care/eyeglasses"
-                  className="inline-flex items-center px-6 py-3 bg-yellow text-navy font-semibold rounded-full hover:bg-white transition-colors"
-                >
-                  Explore Our Collection
-                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal animation="fade-left" delay={200}>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-4">
-                  <div className="rounded-2xl overflow-hidden">
-                    <Image
-                      src="/images/eyewear/frame-1.jpg"
-                      alt="Designer frames"
-                      width={300}
-                      height={400}
-                      className="w-full h-64 object-cover"
-                    />
-                  </div>
-                  <div className="rounded-2xl overflow-hidden">
-                    <Image
-                      src="/images/eyewear/frame-2.jpg"
-                      alt="Luxury eyewear"
-                      width={300}
-                      height={300}
-                      className="w-full h-48 object-cover"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-4 pt-8">
-                  <div className="rounded-2xl overflow-hidden">
-                    <Image
-                      src="/images/eyewear/frame-3.jpg"
-                      alt="Modern frames"
-                      width={300}
-                      height={300}
-                      className="w-full h-48 object-cover"
-                    />
-                  </div>
-                  <div className="rounded-2xl overflow-hidden">
-                    <Image
-                      src="/images/eyewear/frame-4.jpg"
-                      alt="Premium sunglasses"
-                      width={300}
-                      height={400}
-                      className="w-full h-64 object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Technology Section */}
-      <section className="py-24 bg-gradient-to-b from-white to-warm">
+      {/* Technology Section - Cobalt */}
+      <section className="py-24 bg-cobalt">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal animation="fade-up">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="inline-block px-4 py-1 bg-teal/10 text-teal rounded-full text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-1 bg-white/20 text-white rounded-full text-sm font-medium mb-4">
                 Advanced Technology
               </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
                 State-of-the-Art Diagnostic Equipment
               </h2>
-              <p className="text-gray-600 text-lg">
+              <p className="text-white/70 text-lg">
                 We invest in the latest technology to provide you with the most accurate diagnoses and effective treatments.
               </p>
             </div>
@@ -485,12 +513,12 @@ export default function Home() {
               },
             ].map((tech, index) => (
               <ScrollReveal key={tech.title} animation="fade-up" delay={index * 100}>
-                <div className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="w-16 h-16 bg-teal/10 rounded-xl flex items-center justify-center text-teal mx-auto mb-6">
+                <div className="text-center p-8 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/15 transition-colors">
+                  <div className="w-16 h-16 bg-yellow/20 rounded-lg flex items-center justify-center text-yellow mx-auto mb-6">
                     {tech.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-navy mb-3">{tech.title}</h3>
-                  <p className="text-gray-600">{tech.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-3">{tech.title}</h3>
+                  <p className="text-white/70">{tech.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -498,54 +526,54 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact/CTA Section */}
-      <section className="py-24 bg-cobalt">
+      {/* Contact/CTA Section - Yellow */}
+      <section className="py-24 bg-yellow">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal animation="fade-right">
-              <div className="text-white">
+              <div className="text-navy">
                 <h2 className="text-3xl sm:text-4xl font-bold mb-6">
                   Ready to See the Difference?
                 </h2>
-                <p className="text-white/80 text-lg mb-8">
+                <p className="text-navy/70 text-lg mb-8">
                   Schedule your comprehensive eye exam today and experience the Eyes on Central difference. We&apos;re here to help you achieve your best vision.
                 </p>
                 
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
-                      <svg className="w-6 h-6 text-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-12 h-12 bg-navy/10 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                     </div>
                     <div>
-                      <div className="font-medium">123 Central Avenue</div>
-                      <div className="text-white/60">St. Petersburg, FL 33701</div>
+                      <div className="font-medium">612 Central Avenue</div>
+                      <div className="text-navy/60">St. Petersburg, FL 33701</div>
                     </div>
                   </div>
                   
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
-                      <svg className="w-6 h-6 text-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-12 h-12 bg-navy/10 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                       </svg>
                     </div>
                     <div>
-                      <div className="font-medium">(727) 555-EYES</div>
-                      <div className="text-white/60">Call or Text</div>
+                      <div className="font-medium">(727) 800-2020</div>
+                      <div className="text-navy/60">Call or Text</div>
                     </div>
                   </div>
                   
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
-                      <svg className="w-6 h-6 text-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-12 h-12 bg-navy/10 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
                     <div>
                       <div className="font-medium">Mon-Fri: 9am - 6pm</div>
-                      <div className="text-white/60">Sat: 9am - 2pm</div>
+                      <div className="text-navy/60">Sat: 9am - 2pm</div>
                     </div>
                   </div>
                 </div>
@@ -553,7 +581,7 @@ export default function Home() {
             </ScrollReveal>
 
             <ScrollReveal animation="fade-left" delay={200}>
-              <div className="bg-white rounded-3xl p-8 shadow-2xl">
+              <div className="bg-white rounded-2xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-navy mb-6">Book Your Appointment</h3>
                 <form className="space-y-4">
                   <div>
@@ -561,7 +589,7 @@ export default function Home() {
                     <input
                       type="text"
                       id="name"
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-cobalt/20 focus:border-cobalt transition-colors"
+                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cobalt/20 focus:border-cobalt transition-colors"
                       placeholder="John Doe"
                     />
                   </div>
@@ -570,7 +598,7 @@ export default function Home() {
                     <input
                       type="email"
                       id="email"
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-cobalt/20 focus:border-cobalt transition-colors"
+                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cobalt/20 focus:border-cobalt transition-colors"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -579,7 +607,7 @@ export default function Home() {
                     <input
                       type="tel"
                       id="phone"
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-cobalt/20 focus:border-cobalt transition-colors"
+                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cobalt/20 focus:border-cobalt transition-colors"
                       placeholder="(727) 555-1234"
                     />
                   </div>
@@ -587,7 +615,7 @@ export default function Home() {
                     <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1">Service Needed</label>
                     <select
                       id="service"
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-cobalt/20 focus:border-cobalt transition-colors"
+                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cobalt/20 focus:border-cobalt transition-colors"
                     >
                       <option value="">Select a service</option>
                       <option value="eye-exam">Comprehensive Eye Exam</option>
@@ -599,7 +627,7 @@ export default function Home() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full py-4 bg-cobalt text-white font-semibold rounded-xl hover:bg-navy transition-colors"
+                    className="w-full py-4 bg-navy text-white font-semibold rounded-lg hover:bg-cobalt transition-colors"
                   >
                     Request Appointment
                   </button>
