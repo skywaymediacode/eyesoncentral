@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const navLinks = [
   {
@@ -180,11 +181,15 @@ export default function Nav() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[72px]">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 shrink-0">
-            <GlassesIcon className="h-6 w-auto text-[#1B4DC0]" />
-            <span className="text-lg font-bold tracking-tight text-[#0D2B6E]">
-              Eyes on Central
-            </span>
+          <Link href="/" className="shrink-0">
+            <Image
+              src="/images/logo.png"
+              alt="Eyes on Central"
+              width={220}
+              height={40}
+              className="h-10 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation Links */}
