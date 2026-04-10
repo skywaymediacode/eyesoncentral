@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ScrollReveal from "../components/ScrollReveal";
 
 const services = [
   {
@@ -108,6 +109,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left */}
+            <ScrollReveal direction="right">
             <div>
               <p className="uppercase tracking-wider text-sm font-semibold text-cobalt mb-4">
                 Optometry in St. Petersburg
@@ -127,13 +129,13 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-4 mb-10">
                 <Link
                   href="/contact"
-                  className="bg-yellow text-navy rounded-full px-8 py-3 font-semibold hover:opacity-90 transition"
+                  className="bg-yellow text-navy rounded-full px-8 py-3 font-semibold hover:scale-105 hover:shadow-lg hover:opacity-90 transition-all duration-300"
                 >
                   Request Appointment
                 </Link>
                 <Link
                   href="tel:7278002020"
-                  className="rounded-full border-2 border-cobalt text-cobalt px-8 py-3 font-semibold hover:bg-cobalt hover:text-white transition"
+                  className="rounded-full border-2 border-cobalt text-cobalt px-8 py-3 font-semibold hover:bg-cobalt hover:text-white hover:scale-105 transition-all duration-300"
                 >
                   Call (727) 800-2020
                 </Link>
@@ -153,16 +155,19 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
+            </ScrollReveal>
 
             {/* Right */}
-            <div className="relative bg-navy rounded-2xl aspect-[4/5] overflow-hidden">
+            <ScrollReveal direction="left" delay={200}>
+            <div className="relative bg-navy rounded-2xl aspect-[4/5] overflow-hidden group">
               <Image
                 src="/images/interior_mural.jpg"
                 alt="Eyes on Central interior with colorful mural"
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
             </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -175,14 +180,15 @@ export default function HomePage() {
               { label: "Patient Forms", href: "/patients/forms" },
               { label: "Browse Eyewear", href: "/vision-care/lenses-frames" },
               { label: "Shop Contacts", href: "/vision-care/contacts" },
-            ].map((link) => (
+            ].map((link, i) => (
+              <ScrollReveal key={link.label} direction="up" delay={i * 150}>
               <Link
-                key={link.label}
                 href={link.href}
-                className="bg-white text-navy rounded-full px-6 py-2 font-semibold hover:shadow-lg transition"
+                className="bg-white text-navy rounded-full px-6 py-2 font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 inline-block"
               >
                 {link.label} →
               </Link>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -191,6 +197,7 @@ export default function HomePage() {
       {/* ===== SERVICES GRID ===== */}
       <section className="bg-warm py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal direction="up">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">
               Comprehensive Vision Care
@@ -200,11 +207,12 @@ export default function HomePage() {
               spectrum of eye care services for every member of your family.
             </p>
           </div>
+          </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, i) => (
+              <ScrollReveal key={service.name} direction="up" delay={i * 100}>
               <div
-                key={service.name}
-                className={`bg-white rounded-xl p-6 shadow-sm border-l-4 ${borderColors[i % 3]}`}
+                className={`bg-white rounded-xl p-6 shadow-sm border-l-4 hover:shadow-lg hover:-translate-y-1 hover:border-l-[6px] transition-all duration-300 ${borderColors[i % 3]}`}
               >
                 <h3 className="font-semibold text-lg text-navy mb-2">
                   {service.name}
@@ -219,6 +227,7 @@ export default function HomePage() {
                   Learn More →
                 </Link>
               </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -229,19 +238,22 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left — portrait */}
+            <ScrollReveal direction="left">
             <div className="relative">
-              <div className="border-t-4 border-yellow rounded-2xl overflow-hidden shadow-lg">
+              <div className="border-t-4 border-yellow rounded-2xl overflow-hidden shadow-lg group">
                 <Image
                   src="/images/doctor_portrait.jpg"
                   alt="Dr. Caleb Saint Jean"
                   width={600}
                   height={700}
-                  className="object-cover w-full"
+                  className="object-cover w-full group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
             </div>
+            </ScrollReveal>
 
             {/* Right — bio */}
+            <ScrollReveal direction="right" delay={200}>
             <div>
               <p className="uppercase tracking-wider text-sm font-semibold text-cobalt mb-4">
                 Meet Your Doctor
@@ -265,6 +277,7 @@ export default function HomePage() {
                 Meet Our Team →
               </Link>
             </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -272,53 +285,65 @@ export default function HomePage() {
       {/* ===== INTERIOR GALLERY ===== */}
       <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal direction="up">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">
               Inside Our Practice
             </h2>
           </div>
+          </ScrollReveal>
           <div className="grid grid-cols-2 lg:grid-cols-3 grid-rows-2 gap-4">
             {/* Tall image spanning 2 rows */}
-            <div className="row-span-2 relative rounded-xl overflow-hidden min-h-[400px] lg:min-h-0">
+            <ScrollReveal direction="up" delay={0} className="row-span-2">
+            <div className="relative rounded-xl overflow-hidden min-h-[400px] lg:min-h-0 h-full group">
               <Image
                 src="/images/interior_sun.webp"
                 alt="Sunlit eyewear display"
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
             </div>
-            <div className="relative rounded-xl overflow-hidden aspect-[4/3]">
+            </ScrollReveal>
+            <ScrollReveal direction="up" delay={100}>
+            <div className="relative rounded-xl overflow-hidden aspect-[4/3] group">
               <Image
                 src="/images/interior_frames.webp"
                 alt="Frame collection wall"
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
             </div>
-            <div className="relative rounded-xl overflow-hidden aspect-[4/3]">
+            </ScrollReveal>
+            <ScrollReveal direction="up" delay={200}>
+            <div className="relative rounded-xl overflow-hidden aspect-[4/3] group">
               <Image
                 src="/images/interior_equipment.webp"
                 alt="Advanced eye care equipment"
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
             </div>
-            <div className="relative rounded-xl overflow-hidden aspect-[4/3]">
+            </ScrollReveal>
+            <ScrollReveal direction="up" delay={300}>
+            <div className="relative rounded-xl overflow-hidden aspect-[4/3] group">
               <Image
                 src="/images/interior_shelves.webp"
                 alt="Organized frame displays"
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
             </div>
-            <div className="relative rounded-xl overflow-hidden aspect-[4/3]">
+            </ScrollReveal>
+            <ScrollReveal direction="up" delay={400}>
+            <div className="relative rounded-xl overflow-hidden aspect-[4/3] group">
               <Image
                 src="/images/interior_reception.webp"
                 alt="Welcoming reception area"
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
             </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -328,7 +353,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left */}
-            <div>
+            <ScrollReveal direction="right">
               <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">
                 Designer Eyewear Collection
               </h2>
@@ -354,10 +379,11 @@ export default function HomePage() {
               >
                 Explore Our Collection →
               </Link>
-            </div>
+            </ScrollReveal>
 
             {/* Right */}
-            <div className="grid grid-cols-2 gap-4">
+            <ScrollReveal direction="left" delay={200}>
+              <div className="grid grid-cols-2 gap-4">
               {[
                 {
                   src: "/images/interior_gucci.webp",
@@ -378,7 +404,7 @@ export default function HomePage() {
               ].map((img) => (
                 <div
                   key={img.alt}
-                  className="relative rounded-xl overflow-hidden aspect-square"
+                  className="relative rounded-xl overflow-hidden aspect-square hover:scale-105 transition-transform duration-500"
                 >
                   <Image
                     src={img.src}
@@ -388,7 +414,8 @@ export default function HomePage() {
                   />
                 </div>
               ))}
-            </div>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -398,7 +425,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-5 gap-12 items-center">
             {/* Left */}
-            <div className="lg:col-span-3">
+            <ScrollReveal direction="right" className="lg:col-span-3">
               <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">
                 Advanced Technology
               </h2>
@@ -410,7 +437,7 @@ export default function HomePage() {
                 {techItems.map((item) => (
                   <div
                     key={item.title}
-                    className={`bg-white rounded-xl p-5 border-l-4 ${item.border}`}
+                    className={`bg-white rounded-xl p-5 border-l-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ${item.border}`}
                   >
                     <h3 className="font-semibold text-navy mb-1">
                       {item.title}
@@ -419,10 +446,10 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Right */}
-            <div className="lg:col-span-2">
+            <ScrollReveal direction="left" delay={200} className="lg:col-span-2">
               <Image
                 src="/images/interior_equipment.webp"
                 alt="State-of-the-art diagnostic equipment"
@@ -430,7 +457,7 @@ export default function HomePage() {
                 height={600}
                 className="object-cover w-full rounded-2xl"
               />
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -440,6 +467,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Left — info card */}
+            <ScrollReveal direction="right">
             <div className="bg-warm rounded-2xl p-8">
               <h2 className="text-3xl font-bold text-navy mb-6">Visit Us</h2>
               <div className="mb-6">
@@ -467,16 +495,18 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
+            </ScrollReveal>
 
             {/* Right — image + buttons */}
+            <ScrollReveal direction="left" delay={200}>
             <div className="flex flex-col">
-              <div className="rounded-2xl overflow-hidden mb-6">
+              <div className="rounded-2xl overflow-hidden mb-6 group">
                 <Image
                   src="/images/exterior.webp"
                   alt="Eyes on Central exterior"
                   width={600}
                   height={400}
-                  className="object-cover w-full rounded-2xl"
+                  className="object-cover w-full rounded-2xl group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
               <div className="flex flex-wrap gap-4">
@@ -484,18 +514,19 @@ export default function HomePage() {
                   href="https://maps.google.com/?q=1490+Central+Ave+St+Petersburg+FL+33705"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-yellow text-navy rounded-full px-6 py-3 font-semibold hover:opacity-90 transition"
+                  className="bg-yellow text-navy rounded-full px-6 py-3 font-semibold hover:scale-105 hover:shadow-lg hover:opacity-90 transition-all duration-300"
                 >
                   Get Directions
                 </Link>
                 <Link
                   href="/contact"
-                  className="bg-cobalt text-white rounded-full px-6 py-3 font-semibold hover:opacity-90 transition"
+                  className="bg-cobalt text-white rounded-full px-6 py-3 font-semibold hover:scale-105 hover:shadow-lg hover:opacity-90 transition-all duration-300"
                 >
                   Request Appointment
                 </Link>
               </div>
             </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
