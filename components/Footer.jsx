@@ -28,7 +28,7 @@ const aboutLinks = [
 export default function Footer() {
   return (
     <footer className="bg-navy text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Column 1 - Brand */}
           <div>
@@ -60,7 +60,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white/80 text-sm hover:text-[#F5C518] transition-colors"
+                    className="text-white/80 text-sm hover:text-yellow transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -77,7 +77,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white/80 text-sm hover:text-[#F5C518] transition-colors"
+                    className="text-white/80 text-sm hover:text-yellow transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -94,7 +94,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white/80 text-sm hover:text-[#F5C518] transition-colors"
+                    className="text-white/80 text-sm hover:text-yellow transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -107,7 +107,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-2">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-2">
           <p className="text-white/80 text-sm">
             &copy; 2026 Eyes on Central. All rights reserved.
           </p>
