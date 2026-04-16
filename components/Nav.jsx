@@ -6,14 +6,14 @@ import Image from 'next/image';
 
 const navLinks = [
   {
-    label: 'About',
+    label: 'ABOUT',
     dropdown: [
       { label: 'Our Story', href: '/about' },
       { label: 'Doctors & Staff', href: '/about/doctors-staff' },
     ],
   },
   {
-    label: 'Vision Care',
+    label: 'VISION CARE',
     dropdown: [
       { label: 'Eye Exams', href: '/vision-care/eye-exams' },
       { label: 'Lenses & Frames', href: '/vision-care/lenses-frames' },
@@ -27,11 +27,11 @@ const navLinks = [
     ],
   },
   {
-    label: 'Eyewear',
+    label: 'EYEWEAR',
     href: '/vision-care/lenses-frames',
   },
   {
-    label: 'Patients',
+    label: 'PATIENTS',
     dropdown: [
       { label: 'Overview', href: '/patients' },
       { label: 'Insurance', href: '/patients/insurance' },
@@ -40,43 +40,10 @@ const navLinks = [
     ],
   },
   {
-    label: 'Contact',
+    label: 'CONTACT',
     href: '/contact',
   },
 ];
-
-function GlassesIcon({ className }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 48 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <circle cx="12" cy="10" r="9" stroke="currentColor" strokeWidth="2.5" />
-      <circle cx="36" cy="10" r="9" stroke="currentColor" strokeWidth="2.5" />
-      <path
-        d="M21 10c1.5-3 4.5-3 6 0"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M3 10C1.5 8 0.5 6 0 5"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M45 10c1.5-2 2.5-4 3-5"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
 
 function ChevronDownIcon({ className }) {
   return (
@@ -177,8 +144,8 @@ export default function Nav() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-white border-b border-gray-200/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="sticky top-0 z-50 w-full bg-navy border-b border-white/10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[72px]">
           {/* Logo */}
           <Link href="/" className="shrink-0">
@@ -187,7 +154,7 @@ export default function Nav() {
               alt="Eyes on Central"
               width={1024}
               height={139}
-              className="h-9 w-auto"
+              className="h-9 w-auto brightness-0 invert"
               priority
             />
           </Link>
@@ -204,13 +171,13 @@ export default function Nav() {
                 >
                   <button
                     type="button"
-                    className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-[#0D2B6E] rounded-lg hover:bg-gray-50 transition-colors"
+                    className="flex items-center gap-1 px-3 py-2 text-xs font-semibold tracking-wider text-white/90 rounded-lg hover:bg-white/10 transition-colors"
                     aria-expanded={openDropdown === link.label}
                     aria-haspopup="true"
                   >
                     {link.label}
                     <ChevronDownIcon
-                      className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
+                      className={`w-4 h-4 text-white/60 transition-transform duration-200 ${
                         openDropdown === link.label ? 'rotate-180' : ''
                       }`}
                     />
@@ -226,18 +193,18 @@ export default function Nav() {
                   >
                     <div
                       className={`bg-white rounded-xl shadow-lg ring-1 ring-black/5 overflow-hidden ${
-                        link.label === 'Vision Care'
+                        link.label === 'VISION CARE'
                           ? 'w-[480px] p-4'
                           : 'w-56 py-2'
                       }`}
                     >
-                      {link.label === 'Vision Care' ? (
+                      {link.label === 'VISION CARE' ? (
                         <div className="grid grid-cols-2 gap-1">
                           {link.dropdown.map((item) => (
                             <Link
                               key={item.href}
                               href={item.href}
-                              className="flex items-center gap-2 px-3 py-2.5 text-sm text-[#0D2B6E] rounded-lg hover:bg-[#1B4DC0]/5 transition-colors"
+                              className="flex items-center gap-2 px-3 py-2.5 text-sm text-navy rounded-lg hover:bg-cobalt/5 transition-colors"
                               onClick={() => setOpenDropdown(null)}
                             >
                               {item.label}
@@ -249,7 +216,7 @@ export default function Nav() {
                           <Link
                             key={item.href}
                             href={item.href}
-                            className="block px-4 py-2.5 text-sm text-[#0D2B6E] hover:bg-[#1B4DC0]/5 transition-colors"
+                            className="block px-4 py-2.5 text-sm text-navy hover:bg-cobalt/5 transition-colors"
                             onClick={() => setOpenDropdown(null)}
                           >
                             {item.label}
@@ -263,7 +230,7 @@ export default function Nav() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="px-3 py-2 text-sm font-medium text-[#0D2B6E] rounded-lg hover:bg-gray-50 transition-colors"
+                  className="px-3 py-2 text-xs font-semibold tracking-wider text-white/90 rounded-lg hover:bg-white/10 transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -275,7 +242,7 @@ export default function Nav() {
           <div className="flex items-center gap-3">
             <a
               href="tel:+17278002020"
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-[#1B4DC0] text-white text-sm font-semibold rounded-lg hover:bg-[#1640A0] transition-colors"
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-yellow text-navy text-sm font-bold rounded-lg hover:bg-yellow/90 hover:scale-105 transition-all duration-200"
             >
               <PhoneIcon className="w-4 h-4" />
               (727) 800-2020
@@ -284,7 +251,7 @@ export default function Nav() {
             {/* Mobile Menu Toggle */}
             <button
               type="button"
-              className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-[#0D2B6E] hover:bg-gray-100 transition-colors"
+              className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-white hover:bg-white/10 transition-colors"
               onClick={() => setMobileMenuOpen((prev) => !prev)}
               aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileMenuOpen}
@@ -305,19 +272,19 @@ export default function Nav() {
           mobileMenuOpen ? 'max-h-[calc(100vh-72px)] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="border-t border-gray-100 bg-white px-4 sm:px-6 pb-6 pt-2">
+        <div className="border-t border-white/10 bg-navy px-4 sm:px-6 pb-6 pt-2">
           {navLinks.map((link) =>
             link.dropdown ? (
               <div key={link.label}>
                 <button
                   type="button"
-                  className="flex items-center justify-between w-full py-3 text-base font-medium text-[#0D2B6E]"
+                  className="flex items-center justify-between w-full py-3 text-sm font-semibold tracking-wider text-white"
                   onClick={() => toggleMobileDropdown(link.label)}
                   aria-expanded={mobileOpenDropdown === link.label}
                 >
                   {link.label}
                   <ChevronDownIcon
-                    className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
+                    className={`w-5 h-5 text-white/60 transition-transform duration-200 ${
                       mobileOpenDropdown === link.label ? 'rotate-180' : ''
                     }`}
                   />
@@ -334,7 +301,7 @@ export default function Nav() {
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="block py-2 text-sm text-gray-600 hover:text-[#1B4DC0] transition-colors"
+                        className="block py-2 text-sm text-white/70 hover:text-yellow transition-colors"
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         {item.label}
@@ -347,7 +314,7 @@ export default function Nav() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="block py-3 text-base font-medium text-[#0D2B6E] hover:text-[#1B4DC0] transition-colors"
+                className="block py-3 text-sm font-semibold tracking-wider text-white hover:text-yellow transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.label}
@@ -356,10 +323,10 @@ export default function Nav() {
           )}
 
           {/* Mobile Phone Button */}
-          <div className="mt-4 pt-4 border-t border-gray-100">
+          <div className="mt-4 pt-4 border-t border-white/10">
             <a
               href="tel:+17278002020"
-              className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-[#1B4DC0] text-white text-sm font-semibold rounded-lg hover:bg-[#1640A0] transition-colors"
+              className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-yellow text-navy text-sm font-bold rounded-lg hover:bg-yellow/90 transition-colors"
             >
               <PhoneIcon className="w-4 h-4" />
               (727) 800-2020
